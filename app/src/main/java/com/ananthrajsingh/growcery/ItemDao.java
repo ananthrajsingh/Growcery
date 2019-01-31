@@ -1,5 +1,6 @@
 package com.ananthrajsingh.growcery;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
@@ -26,7 +27,12 @@ public interface ItemDao {
     @Query("DELETE FROM item_table WHERE uid = :del_uid")
     void deleteItem(int del_uid);
 
+    /*
+     * Using LiveData, we don't have to observe database for constant updates.
+     * Just by changing the return type to LiveData, Room automatically generates all necessary
+     * code to update the LiveData when the database is updated. How great is that!
+     */
     @Query("SELECT * FROM item_table ORDER BY uid DESC")
-    List<Item> getAllItems();
+    LiveData<List<Item>> getAllItems();
 
 }
