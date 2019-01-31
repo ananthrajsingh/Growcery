@@ -3,6 +3,7 @@ package com.ananthrajsingh.growcery.Model;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 /**
  * Created by ananthrajsingh on 31/01/19
@@ -14,6 +15,7 @@ public class Item {
     @PrimaryKey(autoGenerate = true) // This automatically creates and increments
     private int uid;
 
+    @NonNull
     @ColumnInfo(name = "name")
     private String name;
 
@@ -28,11 +30,12 @@ public class Item {
      * That is the primary rule of encapsulation.
      */
 
+    @NonNull
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(@NonNull String name) {
         this.name = name;
     }
 
