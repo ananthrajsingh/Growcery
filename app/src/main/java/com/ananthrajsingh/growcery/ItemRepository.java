@@ -62,29 +62,31 @@ public class ItemRepository {
      */
 
     public void insert (Item item){
-        new queryAsyncTask(mItemDao).execute(INSERT_QUERY, item);
+        new queryAsyncTask(mItemDao, INSERT_QUERY).execute(item);
     }
 
-    public void delete (int uid){
-        new queryAsyncTask(mItemDao).execute(DELETE_QUERY, uid);
+    public void delete (Item item){
+        new queryAsyncTask(mItemDao, DELETE_QUERY).execute(item);
     }
 
-    private static class queryAsyncTask extends AsyncTask<Object, Void, Void>{
+    private static class queryAsyncTask extends AsyncTask<Item, Void, Void>{
 
         private ItemDao mAsyncDao;
+        private int mQueryType;
 
-        queryAsyncTask(ItemDao dao){
+        queryAsyncTask(ItemDao dao, int queryType){
             mAsyncDao = dao;
+            mQueryType = queryType;
         }
 
         @Override
-        protected Void doInBackground(Object... objects) {
-            switch ((int) objects[0]){
+        protected Void doInBackground(Item item) {
+            switch (mQueryType){
                 case DELETE_QUERY:
-                    mAsyncDao.deleteItem((int)objects[1]);
+                    mAsyncDao.deleteItem(item.getUid());
                     break;
                 case INSERT_QUERY:
-                    mAsyncDao.insert((Item)objects[1]);
+                    mAsyncDao.insert((item);
                     break;
             }
             return null;

@@ -30,6 +30,10 @@ public class Item {
      * That is the primary rule of encapsulation.
      */
 
+    public int getUid() {
+        return uid;
+    }
+
     @NonNull
     public String getName() {
         return name;
