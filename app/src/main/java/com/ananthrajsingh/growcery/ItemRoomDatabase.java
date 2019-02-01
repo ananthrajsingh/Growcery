@@ -18,6 +18,7 @@ import com.ananthrajsingh.growcery.Model.Item;
 @Database(entities = {Item.class}, version = 1)
 public abstract class ItemRoomDatabase extends RoomDatabase {
 
+
     // Abstract getter of Dao
     public abstract ItemDao itemDao();
 
@@ -27,6 +28,8 @@ public abstract class ItemRoomDatabase extends RoomDatabase {
      * changes in one thread is instantaneously reflected in other thread(s). Variables cannot
      * be declared synchronized, therefore we are given volatile. Potentially, this removes any
      * inconsistency that can occur when working on same database through different threads.
+     * Basically, read and write happens on main memory and not in thread cache for volatile
+     * fields.
      */
     private static volatile ItemRoomDatabase INSTANCE;
 
