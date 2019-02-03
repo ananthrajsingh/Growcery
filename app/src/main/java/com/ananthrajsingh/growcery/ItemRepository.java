@@ -80,17 +80,16 @@ public class ItemRepository {
         }
 
         @Override
-        protected Void doInBackground(Item item) {
+        protected Void doInBackground(Item... items) {
             switch (mQueryType){
                 case DELETE_QUERY:
-                    mAsyncDao.deleteItem(item.getUid());
+                    mAsyncDao.deleteItem(items[0].getUid());
                     break;
                 case INSERT_QUERY:
-                    mAsyncDao.insert((item);
+                    mAsyncDao.insert((items[0]));
                     break;
             }
-            return null;
-        }
+            return null;        }
     }
 
 }

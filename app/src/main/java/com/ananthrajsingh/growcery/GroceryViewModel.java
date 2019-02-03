@@ -1,7 +1,9 @@
 package com.ananthrajsingh.growcery;
 
+import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
+import android.support.annotation.NonNull;
 
 import com.ananthrajsingh.growcery.Model.Item;
 
@@ -17,10 +19,16 @@ import java.util.List;
  */
 public class GroceryViewModel extends AndroidViewModel {
 
-    // Since, well, ViewModel talks to repository not Activity any more
+    // Since, well, repository talks to ViewModel not Activity any more
     private ItemRepository mItemRepository;
     // LiveData can do wonders
     private LiveData<List<Item>> mAllItems;
+
+    public GroceryViewModel(@NonNull Application application) {
+        super(application);
+        mItemRepository = new ItemRepository(application);
+        mAllItems = mItemRepository.getAllItems();
+    }
 
     /*
      * We need another wrapper for getter and setters here.

@@ -19,7 +19,7 @@ import com.ananthrajsingh.growcery.Model.Item;
 public abstract class ItemRoomDatabase extends RoomDatabase {
 
 
-    // Abstract getter of Dao
+    // Abstract getter of Dao. This is how db knows from which class to make Database access objects
     public abstract ItemDao itemDao();
 
     /*
