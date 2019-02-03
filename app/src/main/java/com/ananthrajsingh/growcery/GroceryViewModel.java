@@ -43,4 +43,16 @@ public class GroceryViewModel extends AndroidViewModel {
     public void delete (Item item){
         mItemRepository.delete(item);
     }
+
+    /*
+     ************************************************************************************
+     * Just before you go, please note that that never pass Activity, Fragments or View
+     * instances to ViewModel. Regard it as a -
+     * WARNING: If we pass activity/fragment/view objects or activity/fragment context,
+     * this ViewModel will hold reference to them. Now, in a ViewModel lifecycle,
+     * activities can be destroyed and made. ViewModel will hold reference to all those
+     * destroyed activities. Now when Garbage Collector comes along to take destroyed
+     * activity away it sees "Oh! ViewModel has it's reference, lets not collect it, activity
+     * might be in use" and moves ahead. THIS IS MEMORY LEAK!
+     */
 }
