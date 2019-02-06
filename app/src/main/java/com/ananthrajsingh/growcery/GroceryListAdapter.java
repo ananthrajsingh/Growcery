@@ -66,6 +66,7 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
 
     @Override
     public int getItemCount() {
+        /* Take care of case where list is not yet initialised */
         if (mList != null) return mList.size();
         else return 0;
     }

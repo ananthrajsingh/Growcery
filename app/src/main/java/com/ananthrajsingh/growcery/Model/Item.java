@@ -17,7 +17,7 @@ public class Item {
 
     @NonNull
     @ColumnInfo(name = "name")
-    private String name;
+    private String name = "";
 
     @ColumnInfo(name = "quantity")
     private int quantity;
@@ -32,6 +32,10 @@ public class Item {
 
     public int getUid() {
         return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
     @NonNull
