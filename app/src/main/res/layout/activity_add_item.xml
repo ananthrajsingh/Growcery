@@ -1,9 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AddItemActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/edit_item"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/hint_item"
+            android:inputType="textAutoComplete"
+            android:padding="@dimen/small_padding"
+            android:layout_marginBottom="@dimen/big_padding"
+            android:layout_marginTop="@dimen/big_padding"
+            android:textSize="18sp" />
+        <EditText
+            android:id="@+id/edit_amount"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-light"
+            android:inputType="number"
+            android:hint="@string/hint_amount"
+            android:padding="@dimen/small_padding"
+            android:layout_marginBottom="@dimen/big_padding"
+            android:layout_marginTop="@dimen/big_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spinner_unit"
+            android:padding="@dimen/small_padding"
+            android:layout_marginBottom="@dimen/big_padding"
+            android:layout_marginTop="@dimen/big_padding"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:spinnerMode="dropdown"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="@string/button_save"
+        android:textColor="@color/buttonLabel" />
+
+</LinearLayout>

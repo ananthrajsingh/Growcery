@@ -3,7 +3,15 @@
     <string name="action_settings">Settings</string>
     <string name="no_item">No item</string>
 
-    <string name="hint_word">Word&#8230;</string>
+    <string name="hint_item">Item&#8230;</string>
+    <string name="hint_amount">Amount</string>
     <string name="button_save">Save</string>
-    <string name="empty_not_saved">Word not saved because it is empty.</string>
+    <string name="empty_not_saved">Item not saved because it is empty.</string>
+    <string-array name="units">
+        <item>Unit</item>
+        <item>Kg</item>
+        <item>gm</item>
+        <item>lit</item>
+        <item>ml</item>
+    </string-array>
 </resources>
