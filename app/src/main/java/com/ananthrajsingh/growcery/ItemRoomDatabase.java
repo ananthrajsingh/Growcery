@@ -1,9 +1,11 @@
 package com.ananthrajsingh.growcery;
 
+import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.ananthrajsingh.growcery.Model.Item;
 
@@ -21,6 +23,14 @@ public abstract class ItemRoomDatabase extends RoomDatabase {
 
     // Abstract getter of Dao. This is how db knows from which class to make Database access objects
     public abstract ItemDao itemDao();
+//    private static RoomDatabase.Callback mRoomDatabaseCallback =
+//            new RoomDatabase.Callback(){
+//                @Override
+//                public void onOpen(@NonNull SupportSQLiteDatabase db) {
+//                    super.onOpen(db);
+//                    new PopulateDbAsync(INSTANCE).execute();
+//                }
+//            }
 
     /*
      * volatile fields share a common value. Different threads might be running with their own
