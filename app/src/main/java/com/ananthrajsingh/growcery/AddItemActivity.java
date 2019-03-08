@@ -54,11 +54,11 @@ public class AddItemActivity extends AppCompatActivity {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
                     String name = mEditName.getText().toString();
-                    String amount = mEditAmount.getText().toString();
+                    int amount = Integer.parseInt(mEditAmount.getText().toString());
                     int unit = mSpinnerUnit.getSelectedItemPosition();
                     Item item = new Item();
                     item.setName(name);
-                    item.setQuantity(Integer.parseInt(amount));
+                    item.setQuantity(amount);
                     item.setUnitType(unit);
                     replyIntent.putExtra(EXTRA_NAME, name);
                     replyIntent.putExtra(EXTRA_AMOUNT, amount);

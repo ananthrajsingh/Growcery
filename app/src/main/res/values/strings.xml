@@ -14,4 +14,9 @@
         <item>lit</item>
         <item>ml</item>
     </string-array>
+
+    <plurals name="unit_plural">
+        <item quantity="one">unit</item>
+        <item quantity="other">units</item>
+    </plurals>
 </resources>

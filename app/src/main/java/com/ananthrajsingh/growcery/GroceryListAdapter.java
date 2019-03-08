@@ -38,9 +38,11 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
     private final LayoutInflater mLayoutInflater;
     /* This is the cached copy of grocery items, which needs to be updated on change */
     private List<Item> mList;
+    private Context mContext;
 
     public GroceryListAdapter(Context context) {
         mLayoutInflater = LayoutInflater.from(context);
+        mContext = context;
     }
 
     @NonNull
@@ -54,10 +56,18 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
     public void onBindViewHolder(@NonNull GroceryViewHolder viewHolder, int i) {
         if (mList != null){
             Item current = mList.get(i);
+            viewHolder.quantity.setText(Integer.toString(current.getQuantity()));
             viewHolder.name.setText(current.getName());
-            viewHolder.quantity.setText(current.getQuantity());
-            viewHolder.unit.setText(current.getUnitType());
-        }
+            /*
+             * If we have unit as Unit, we will take care of pluralising.
+             * Else we will not care.
+             */
+            if (current.getUnitType() == 0){
+                viewHolder.unit.setText(mContext.getResources().getQuantityText(R.plurals.unit_plural, current.getQuantity()));
+            }
+            else {
+                viewHolder.unit.setText(mContext.getResources().getTextArray(R.array.units)[current.getUnitType()]);
+            } }
         else{
             /* In case the list is not yet ready */
             viewHolder.name.setText(R.string.no_item);
