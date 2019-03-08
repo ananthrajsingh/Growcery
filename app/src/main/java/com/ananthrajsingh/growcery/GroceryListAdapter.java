@@ -64,6 +64,11 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryListAdapter.
         }
     }
 
+    public void setList(List<Item> list){
+        mList = list;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         /* Take care of case where list is not yet initialised */

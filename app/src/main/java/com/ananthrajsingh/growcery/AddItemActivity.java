@@ -1,6 +1,9 @@
 package com.ananthrajsingh.growcery;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +14,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.ananthrajsingh.growcery.Model.Item;
+
+import java.util.List;
 
 /**
  * In this activity we are adding new growcery items to database.
