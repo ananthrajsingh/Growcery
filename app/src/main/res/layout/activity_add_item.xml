@@ -5,6 +5,8 @@
 
     <LinearLayout
         android:orientation="horizontal"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
@@ -46,6 +48,8 @@
 
     <Button
         android:id="@+id/button_save"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"

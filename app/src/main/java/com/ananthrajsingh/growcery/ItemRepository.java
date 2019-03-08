@@ -89,7 +89,8 @@ public class ItemRepository {
                     mAsyncDao.insert((items[0]));
                     break;
             }
-            return null;        }
+            return null;
+        }
     }
 
 }

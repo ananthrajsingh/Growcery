@@ -40,6 +40,8 @@ public abstract class ItemRoomDatabase extends RoomDatabase {
      * inconsistency that can occur when working on same database through different threads.
      * Basically, read and write happens on main memory and not in thread cache for volatile
      * fields.
+     * The value of this variable will never be cached thread-locally: all reads and writes
+     * will go straight to "main memory".
      */
     private static volatile ItemRoomDatabase INSTANCE;
 
