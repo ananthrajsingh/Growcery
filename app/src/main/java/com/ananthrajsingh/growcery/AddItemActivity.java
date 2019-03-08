@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -28,10 +29,16 @@ public class AddItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        setContentView(R.layout.activity_add_item);
+
         mEditName = findViewById(R.id.edit_item);
         mEditAmount = findViewById(R.id.edit_amount);
         mSpinnerUnit = findViewById(R.id.spinner_unit);
-        setContentView(R.layout.activity_add_item);
+
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.units, R.layout.support_simple_spinner_dropdown_item);
+//        adapter.setDropDownViewResource(R.id.spinner_unit);
+        mSpinnerUnit.setAdapter(adapter);
 
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {
